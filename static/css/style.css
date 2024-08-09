@@ -1,0 +1,165 @@
+/* General body and typography settings */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 20px;
+    color: #7f8c8d;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.navbar-nav .nav-link {
+    color: #2c3e50;
+    font-weight: 500;
+    padding: 10px 15px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #3498db;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #3498db;
+    border-color: #3498db;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+.btn-secondary {
+    background-color: #ecf0f1;
+    border-color: #ecf0f1;
+    color: #7f8c8d;
+}
+
+.btn-secondary:hover {
+    background-color: #bdc3c7;
+    border-color: #bdc3c7;
+}
+
+/* Forms */
+.form-control {
+    border-radius: 0;
+    border-color: #ccc;
+}
+
+.form-group label {
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+/* Jumbotron */
+.jumbotron {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 2rem 2rem;
+}
+
+.jumbotron h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+}
+
+.jumbotron p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+/* Content Section */
+.container {
+    max-width: 900px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+}
+
+/* Tables */
+.table {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.table th, .table td {
+    padding: 12px 15px;
+    border: 1px solid #dee2e6;
+    text-align: left;
+    color: #2c3e50;
+}
+
+.table th {
+    background-color: #ecf0f1;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Outfit Suggestions */
+.outfit-card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.outfit-card h5 {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.outfit-card p {
+    color: #7f8c8d;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #ecf0f1;
+    color: #7f8c8d;
+    border-top: 1px solid #dee2e6;
+    margin-top: 20px;
+}
+
+.footer a {
+    color: #3498db;
+}
+
+.footer a:hover {
+    color: #2980b9;
+    text-decoration: none;
+}
