@@ -6,6 +6,91 @@
         <p>Manage your wardrobe items here.</p>
         <button class="btn btn-success" onclick="addItem()">Add Item</button>
         <!-- Display wardrobe items in a table or a grid -->
+
+        <div class="card my-4">
+            <div class="card-header">
+                Add a New Item
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('wardrobe') }}">
+                    <div class="form-group">
+                        <label for="type">Type</label>
+                        <select id="type" name="type" class="form-control">
+                            <option value="Outerwear">Outerwear</option>
+                            <option value="Top">Top</option>
+                            <option value="Dress">Dress</option>
+                            <option value="Bottom">Bottom</option>
+                            <option value="Shoes">Shoes</option>
+                            <option value="Accessory">Accessory</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="color">Color</label>
+                        <input type="text" id="color" name="color" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="style">Style</label>
+                        <select id="style" name="style" class="form-control">
+                            <option value="Casual">Casual</option>
+                            <option value="Formal">Formal</option>
+                            <option value="Semi-Formal">Semi-Formal</option>
+                            <option value="Athletic">Athletic</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="seasons">Suitable Seasons</label>
+                        <select id="seasons" name="seasons" class="form-control" multiple>
+                            <option value="Spring">Spring</option>
+                            <option value="Summer">Summer</option>
+                            <option value="Autumn">Autumn</option>
+                            <option value="Winter">Winter</option>
+                        </select>
+                        <small class="form-text text-muted">Hold down the Ctrl (Windows) or Command (Mac) key to select multiple options.</small>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="image_url">Image URL</label>
+                        <input type="text" id="image_url" name="image_url" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Item</button>
+                </form>
+            </div>
+        </div>
+    
+        <!-- Wardrobe Items -->
+        <div class="row">
+            {% for item in wardrobe_items %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img class="card-img-top" src="{{ item.image_url or url_for('static', filename='images/default_item.png') }}" alt="Item Image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.type }}</h5>
+                        <p class="card-text">Color: {{ item.color }}</p>
+                        <p class="card-text">Style: {{ item.style }}</p>
+                        <p class="card-text">Suitable for: {{ item.weather }}</p>
+                        <a href="{{ url_for('edit_item', item_id=item._id) }}" class="btn btn-warning">Edit</a>
+                        <form method="POST" action="{{ url_for('delete_item', item_id=item._id) }}" style="display:inline;">
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    
+        <!-- Button to Generate Outfits -->
+        <div class="mt-4">
+            <a href="#" class="btn btn-success">Generate Outfits</a>
+        </div>
+
+
+
+
+
     </div>
 </div>
 {% endblock %}

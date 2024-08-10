@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Edit Item</h2>
+    <form method="POST" action="{{ url_for('edit_item', item_id=item._id) }}">
+        <div class="form-group">
+            <label for="type">Type</label>
+            <select id="type" name="type" class="form-control">
+                <option value="Top" {% if item.type == 'Top' %}selected{% endif %}>Top</option>
+                <option value="Bottom" {% if item.type == 'Bottom' %}selected{% endif %}>Bottom</option>
+                <option value="Shoes" {% if item.type == 'Shoes' %}selected{% endif %}>Shoes</option>
+                <option value="Accessory" {% if item.type == 'Accessory' %}selected{% endif %}>Accessory</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="color">Color</label>
+            <input type="text" id="color" name="color" class="form-control" value="{{ item.color }}">
+        </div>
+        <div class="form-group">
+            <label for="style">Style</label>
+            <input type="text" id="style" name="style" class="form-control" value="{{ item.style }}">
+        </div>
+        <div class="form-group">
+            <label for="weather">Suitable Weather</label>
+            <select id="weather" name="weather" class="form-control">
+                <option value="Warm" {% if item.weather == 'Warm' %}selected{% endif %}>Warm</option>
+                <option value="Cold" {% if item.weather == 'Cold' %}selected{% endif %}>Cold</option>
+                <option value="Rainy" {% if item.weather == 'Rainy' %}selected{% endif %}>Rainy</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="image_url">Image URL</label>
+            <input type="text" id="image_url" name="image_url" class="form-control" value="{{ item.image_url }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Update Item</button>
+    </form>
+</div>
+{% endblock %}

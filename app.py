@@ -66,10 +66,69 @@ def register():
         return redirect(url_for('wardrobe', username=session["user"]))
     return render_template('register.html')
 
-@app.route('/wardrobe')
+@app.route('/wardrobe', methods=["GET", "POST"])
 def wardrobe():
-    # Handle displaying the user's wardrobe
-    return render_template('wardrobe.html')
+    # user_name = mongo.db.users.find_one(session.get('user_id'))['_id']
+    # print(user_name)
+    user_id = mongo.db.users.find_one(session.get('user_id'))['_id']
+    if request.method == 'POST':
+        # Handle form submission
+        item_type = request.form['type']
+        color = request.form['color']
+        style = request.form['style']
+        seasons = request.form.getlist('seasons')
+        image_url = request.form['image_url']
+
+        # Insert the new item into the wardrobe collection
+        mongo.db.wardrobe.insert_one({
+            'user_id': ObjectId(user_id),  # Replace with the actual user ID from your session
+            'type': item_type,
+            'color': color,
+            'style': style,
+            'seasons': seasons,
+            'image_url': image_url
+        })
+
+        flash('Item added to your wardrobe!', 'success')
+        return redirect(url_for('wardrobe'))
+
+    # Retrieve the user's wardrobe items from the database
+    wardrobe_items = mongo.db.wardrobe.find({'user_id': user_id})
+    return render_template('wardrobe.html', wardrobe_items=wardrobe_items)
+
+@app.route("/wardrobe/edit/<item_id>", methods=['GET', 'POST'])
+def edit_item(item_id):
+    item = mongo.db.wardrobe.find_one({'_id': ObjectId(item_id)})
+
+    if request.method == 'POST':
+        # Update the item in the database
+        mongo.db.wardrobe.update_one(
+            {'_id': ObjectId(item_id)},
+            {'$set': {
+                'type': request.form['type'],
+                'color': request.form['color'],
+                'style': request.form['style'],
+                'weather': request.form['weather'],
+                'image_url': request.form['image_url']
+            }}
+        )
+        flash('Item updated successfully!', 'success')
+        return redirect(url_for('wardrobe'))
+
+    return render_template('edit_item.html', item=item)
+
+@app.route("/wardrobe/delete/<item_id>", methods=['POST'])
+def delete_item(item_id):
+    mongo.db.wardrobe.delete_one({'_id': ObjectId(item_id)})
+    flash('Item deleted successfully!', 'success')
+    return redirect(url_for('wardrobe'))
+
+    
+
+
+
+
+
 
 @app.route('/outfit_suggestions')
 def outfit_suggestions():
