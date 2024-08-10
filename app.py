@@ -101,6 +101,7 @@ def edit_item(item_id):
     item = mongo.db.wardrobe.find_one({'_id': ObjectId(item_id)})
 
     if request.method == 'POST':
+        seasons = request.form.getlist('seasons')
         # Update the item in the database
         mongo.db.wardrobe.update_one(
             {'_id': ObjectId(item_id)},
@@ -108,7 +109,7 @@ def edit_item(item_id):
                 'type': request.form['type'],
                 'color': request.form['color'],
                 'style': request.form['style'],
-                'weather': request.form['weather'],
+                'seasons': seasons,
                 'image_url': request.form['image_url']
             }}
         )

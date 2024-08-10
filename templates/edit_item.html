@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <div class="container mt-4">
     <h2>Edit Item</h2>
     <form method="POST" action="{{ url_for('edit_item', item_id=item._id) }}">
         <div class="form-group">
             <label for="type">Type</label>
             <select id="type" name="type" class="form-control">
+                <option value="Outerwear" {% if item.type == 'Outerwear' %}selected{% endif %}>Outerwear</option>
                 <option value="Top" {% if item.type == 'Top' %}selected{% endif %}>Top</option>
+                <option value="Dress" {% if item.type == 'Dress' %}selected{% endif %}>Dress</option>
                 <option value="Bottom" {% if item.type == 'Bottom' %}selected{% endif %}>Bottom</option>
                 <option value="Shoes" {% if item.type == 'Shoes' %}selected{% endif %}>Shoes</option>
                 <option value="Accessory" {% if item.type == 'Accessory' %}selected{% endif %}>Accessory</option>
@@ -19,14 +22,21 @@
         </div>
         <div class="form-group">
             <label for="style">Style</label>
-            <input type="text" id="style" name="style" class="form-control" value="{{ item.style }}">
+            <select id="style" name="style" class="form-control">
+                <option value="Casual" {% if item.type == 'Casual' %}selected{% endif %}>Casual</option>
+                <option value="Formal" {% if item.type == 'Formal' %}selected{% endif %}>Formal</option>
+                <option value="Semi-Formal" {% if item.type == 'Semi-Formal' %}selected{% endif %}>Semi-Formal</option>
+                <option value="Athletic" {% if item.type == 'Athletic' %}selected{% endif %}>Athletic</option>
+
+            </select>
         </div>
         <div class="form-group">
-            <label for="weather">Suitable Weather</label>
-            <select id="weather" name="weather" class="form-control">
-                <option value="Warm" {% if item.weather == 'Warm' %}selected{% endif %}>Warm</option>
-                <option value="Cold" {% if item.weather == 'Cold' %}selected{% endif %}>Cold</option>
-                <option value="Rainy" {% if item.weather == 'Rainy' %}selected{% endif %}>Rainy</option>
+            <label for="seasons">Suitable Seasons</label>
+            <select id="seasons" name="seasons" class="form-control" multiple>
+                <option value="Spring" {% if item.weather == 'Spring' %}selected{% endif %}>Spring</option>
+                <option value="Summer" {% if item.weather == 'Summer' %}selected{% endif %}>Summer</option>
+                <option value="Autumn" {% if item.weather == 'Autumn' %}selected{% endif %}>Autumn</option>
+                <option value="Winter" {% if item.weather == 'Winter' %}selected{% endif %}>Winter</option>
             </select>
         </div>
         <div class="form-group">
@@ -34,6 +44,7 @@
             <input type="text" id="image_url" name="image_url" class="form-control" value="{{ item.image_url }}">
         </div>
         <button type="submit" class="btn btn-primary">Update Item</button>
+        <a href="{{ url_for('wardrobe') }}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 {% endblock %}
