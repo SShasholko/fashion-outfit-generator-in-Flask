@@ -1,10 +1,64 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="row">
-    <div class="col-md-12">
-        <h2>Outfit Suggestions</h2>
-        <p>Based on the weather and occasion, here are some outfit suggestions for you.</p>
-        <!-- Display outfit suggestions here -->
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Outfit Suggestions</h2>
+    <p class="text-center">Based on the weather and occasion, here are some outfit suggestions for you.</p>
+
+    <!-- Flex Container for Horizontal Layout -->
+    <div class="d-flex flex-row flex-wrap justify-content-center">
+        {% for outfit in outfit_suggestions %}
+            <div class="card mx-2 mb-4" style="width: 300px;">
+                <div class="card-header text-center bg-light">
+                    <h5>Outfit {{ loop.index }}</h5>
+                </div>
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <p><strong>Top:</strong></p>
+                        {% if outfit.top %}
+                            <img src="{{ outfit.top.image_url }}" alt="Top Image" class="img-fluid rounded" style="max-width: 100%; height: auto;">
+                        {% else %}
+                            <p>N/A</p>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <p><strong>Bottom:</strong></p>
+                        {% if outfit.bottom %}
+                            <img src="{{ outfit.bottom.image_url }}" alt="Bottom Image" class="img-fluid rounded" style="max-width: 100%; height: auto;">
+                        {% else %}
+                            <p>N/A</p>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <p><strong>Outerwear:</strong></p>
+                        {% if outfit.outerwear %}
+                            <img src="{{ outfit.outerwear.image_url }}" alt="Outerwear Image" class="img-fluid rounded" style="max-width: 100%; height: auto;">
+                        {% else %}
+                            <p>N/A</p>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <p><strong>Shoes:</strong></p>
+                        {% if outfit.shoes %}
+                            <img src="{{ outfit.shoes.image_url }}" alt="Shoes Image" class="img-fluid rounded" style="max-width: 100%; height: auto;">
+                        {% else %}
+                            <p>N/A</p>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <p><strong>Accessories:</strong></p>
+                        {% if outfit.accessories %}
+                            <img src="{{ outfit.accessories.image_url }}" alt="Accessories Image" class="img-fluid rounded" style="max-width: 100%; height: auto;">
+                        {% else %}
+                            <p>N/A</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

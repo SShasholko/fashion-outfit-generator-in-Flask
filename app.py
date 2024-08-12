@@ -127,15 +127,78 @@ def delete_item(item_id):
     
 
 
-
-
-
-
-@app.route('/outfit_suggestions')
+@app.route('/outfit_suggestions', methods=['GET', 'POST'])
 def outfit_suggestions():
-    # Handle generating and displaying outfit suggestions
-    return render_template('outfit_suggestions.html')
+    if request.method == 'POST':
+        current_season = request.form['seasons']
+        occasion = request.form['occasion']
+        # user_id = session.get('user_id')
+        user_id = mongo.db.users.find_one(session.get('user_id'))['_id']
 
+        # print(current_season, occasion, user_id)
+
+        wardrobe_items = mongo.db.wardrobe.find({
+            'user_id': ObjectId(user_id),
+            'seasons': {'$in': [current_season]},
+            'style': occasion
+        })
+
+
+        tops = []
+        bottoms = []
+        outerwear = []
+        shoes = []
+        accessories = []
+
+        for item in wardrobe_items:
+            if item['type'] == 'Top':
+                tops.append(item)
+            elif item['type'] == 'Bottom':
+                bottoms.append(item)
+            elif item['type'] == 'Outerwear':
+                outerwear.append(item)
+            elif item['type'] == 'Shoes':
+                shoes.append(item)
+            elif item['type'] == 'Accessory':
+                accessories.append(item)
+
+        print(f"Tops: {tops}")
+        print(f"Bottoms: {bottoms}")
+        print(f"Outerwear: {outerwear}")
+        print(f"Shoes: {shoes}")
+        print(f"Accessories: {accessories}")
+
+        # # Group items by type
+        # tops = [item for item in wardrobe_items if item['type'] == 'Top']
+        # bottoms = [item for item in wardrobe_items if item['type'] == 'Bottom']
+        # outerwear = [item for item in wardrobe_items if item['type'] == 'Outerwear']
+        # shoes = [item for item in wardrobe_items if item['type'] == 'Shoes']
+        # accessories = [item for item in wardrobe_items if item['type'] == 'Accessory']
+
+        # # Generate outfit suggestions (basic random example)
+        from random import choice
+
+        # print(f"Tops: {tops}")
+        # print(f"Bottoms: {bottoms}")
+        # print(f"Outerwear: {outerwear}")
+        # print(f"Shoes: {shoes}")
+        # print(f"Accessories: {accessories}")
+
+        outfit_suggestions = []
+        for _ in range(3):  # Generate 3 different outfit suggestions
+            outfit = {
+                'top': choice(tops) if tops else None,
+                'bottom': choice(bottoms) if bottoms else None,
+                'outerwear': choice(outerwear) if outerwear else None,
+                'shoes': choice(shoes) if shoes else None,
+                'accessories': choice(accessories) if accessories else None,
+            }
+            outfit_suggestions.append(outfit)
+
+        return render_template('outfit_suggestions.html', outfit_suggestions=outfit_suggestions)
+
+    # If GET request, show the form to input weather and occasion
+    return render_template('outfit_form.html')
 
 
 
