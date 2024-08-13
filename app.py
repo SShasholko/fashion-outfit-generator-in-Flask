@@ -117,9 +117,11 @@ def edit_item(item_id):
     return render_template('edit_item.html', item=item)
 
 @app.route("/wardrobe/delete/<item_id>", methods=['POST'])
+
 def delete_item(item_id):
-    mongo.db.wardrobe.delete_one({'_id': ObjectId(item_id)})
-    flash('Item deleted successfully!', 'success')
+    # mongo.db.wardrobe.delete_one({'_id': ObjectId(item_id)})
+    # flash('Item deleted successfully!', 'success')
+    print({'_id': ObjectId(item_id)})
     return redirect(url_for('wardrobe'))
 
     
