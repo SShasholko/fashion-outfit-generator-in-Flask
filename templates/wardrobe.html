@@ -4,9 +4,12 @@
     <div class="col-md-12">
         <h2>Your Wardrobe</h2>
         <p>Manage your wardrobe items here.</p>
-        <button class="btn btn-success add-item" data-toggle="modal" data-target="#addItemModal">Add Item</button>
+        <div class="button-container d-flex">
+            <button class="btn btn-success" data-toggle="modal" data-target="#addItemModal">Add Item</button>
+            <a href="{{ url_for('outfit_suggestions') }}" class="btn btn-success">Generate Outfits</a>
+        </div>
 
-        <!-- Modal -->
+        <!-- Modal Add Item -->
         <div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" aria-labelledby="addItemModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -18,7 +21,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <!-- Form Content -->
+
                         <form method="POST" action="{{ url_for('wardrobe') }}">
                             <div class="form-group">
                                 <label for="type">Type</label>
@@ -87,7 +90,7 @@
                             data-target="#deleteModal{{ item._id }}">
                             Delete
                         </button>
-                        
+
                         <!-- Delete Confirmation Modal -->
                         <div class="modal fade" id="deleteModal{{ item._id }}" tabindex="-1" role="dialog"
                             aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -113,20 +116,11 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
-
-        <!-- Button to Generate Outfits -->
-        <div class="mt-4">
-            <a href="{{ url_for('outfit_suggestions') }}" class="btn btn-success">Generate Outfits</a>
-        </div>
     </div>
 </div>
-
-
-
 {% endblock %}
