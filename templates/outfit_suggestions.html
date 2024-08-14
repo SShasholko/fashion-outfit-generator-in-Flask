@@ -1,15 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-
-
 <div class="container mt-5">
-
-    
     <h2 class="text-center mb-4">Outfit Suggestions</h2>
     <p class="text-center">Based on the weather and occasion, here are some outfit suggestions for you.</p>
-
-
-
     {% for outfit in outfit_suggestions %}
     <div class="row mb-4">
         <div class="col-md-12">
@@ -20,13 +13,15 @@
                         {% if outfit.dress %}
                         <div class="col-md-4 mb-3">
                             <p><strong>Dress:</strong></p>
-                            <img src="{{ outfit.dress.image_url }}" alt="Dress Image" class="img-fluid rounded" style="max-width: 100%; height: auto;">
+                            <img src="{{ outfit.dress.image_url }}" alt="Dress Image" class="img-fluid rounded"
+                                style="max-width: 100%; height: auto;">
                         </div>
                         {% else %}
                         <div class="col-md-4 mb-3">
                             <p><strong>Top:</strong></p>
                             {% if outfit.top %}
-                            <img src="{{ outfit.top.image_url }}" alt="Top Image" class="img-fluid rounded" style="max-width: 100%; height: auto;">
+                            <img src="{{ outfit.top.image_url }}" alt="Top Image" class="img-fluid rounded"
+                                style="max-width: 100%; height: auto;">
                             {% else %}
                             <p>N/A</p>
                             {% endif %}
@@ -34,7 +29,8 @@
                         <div class="col-md-4 mb-3">
                             <p><strong>Bottom:</strong></p>
                             {% if outfit.bottom %}
-                            <img src="{{ outfit.bottom.image_url }}" alt="Bottom Image" class="img-fluid rounded" style="max-width: 100%; height: auto;">
+                            <img src="{{ outfit.bottom.image_url }}" alt="Bottom Image" class="img-fluid rounded"
+                                style="max-width: 100%; height: auto;">
                             {% else %}
                             <p>N/A</p>
                             {% endif %}
@@ -43,7 +39,8 @@
                         <div class="col-md-4 mb-3">
                             <p><strong>Outerwear:</strong></p>
                             {% if outfit.outerwear %}
-                            <img src="{{ outfit.outerwear.image_url }}" alt="Outerwear Image" class="img-fluid rounded" style="max-width: 100%; height: auto;">
+                            <img src="{{ outfit.outerwear.image_url }}" alt="Outerwear Image" class="img-fluid rounded"
+                                style="max-width: 100%; height: auto;">
                             {% else %}
                             <p>N/A</p>
                             {% endif %}
@@ -51,7 +48,8 @@
                         <div class="col-md-4 mb-3">
                             <p><strong>Shoes:</strong></p>
                             {% if outfit.shoes %}
-                            <img src="{{ outfit.shoes.image_url }}" alt="Shoes Image" class="img-fluid rounded" style="max-width: 100%; height: auto;">
+                            <img src="{{ outfit.shoes.image_url }}" alt="Shoes Image" class="img-fluid rounded"
+                                style="max-width: 100%; height: auto;">
                             {% else %}
                             <p>N/A</p>
                             {% endif %}
@@ -59,7 +57,8 @@
                         <div class="col-md-4 mb-3">
                             <p><strong>Accessories:</strong></p>
                             {% if outfit.accessories %}
-                            <img src="{{ outfit.accessories.image_url }}" alt="Accessories Image" class="img-fluid rounded" style="max-width: 100%; height: auto;">
+                            <img src="{{ outfit.accessories.image_url }}" alt="Accessories Image"
+                                class="img-fluid rounded" style="max-width: 100%; height: auto;">
                             {% else %}
                             <p>N/A</p>
                             {% endif %}
@@ -71,12 +70,4 @@
     </div>
     {% endfor %}
 </div>
-
-
-
-
-
 {% endblock %}
-
-
-

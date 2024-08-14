@@ -169,7 +169,7 @@ def outfit_suggestions():
             outfit = {}
 
             # Randomly decide to use either a dress or a top + bottom
-            if dresses and choice([True, False]):  # 50% chance to choose a dress if available
+            if dresses and choice([True, False]):
                 outfit['dress'] = choice(dresses)
                 outfit['top'] = None
                 outfit['bottom'] = None
