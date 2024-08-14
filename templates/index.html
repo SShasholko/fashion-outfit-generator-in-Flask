@@ -1,5 +1,9 @@
 {% extends "base.html" %}
+{% block background %}
+<div class="first-screen"></div>
+{% endblock %}
 {% block content %}
+
 <div class="jumbotron text-center">
     <h1 class="display-4">Welcome to the Fashion Outfit Generator!</h1>
     <p class="lead">Create the perfect outfit for any occasion and weather.</p>
@@ -8,4 +12,5 @@
     <a class="btn btn-primary btn-lg" href="{{ url_for('login') }}" role="button">Login</a>
     <a class="btn btn-secondary btn-lg" href="{{ url_for('register') }}" role="button">Register</a>
 </div>
+
 {% endblock %}
