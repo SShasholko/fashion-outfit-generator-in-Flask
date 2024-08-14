@@ -68,8 +68,8 @@ def register():
 
 @app.route('/wardrobe', methods=["GET", "POST"])
 def wardrobe():
-
-    user_id = mongo.db.users.find_one(session.get('user_id'))['_id']
+    user_id = mongo.db.users.find_one({'username':session.get('user')})['_id']
+    
     if request.method == 'POST':
         item_type = request.form['type']
         color = request.form['color']
