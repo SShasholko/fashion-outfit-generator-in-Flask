@@ -95,8 +95,15 @@ def wardrobe():
         flash('Item added to your wardrobe!', 'success')
         return redirect(url_for('wardrobe'))
 
+
+    search_query = request.args.get('search')
+    if search_query:
+        # Search for items that match the search query
+        wardrobe_items = mongo.db.wardrobe.find({"type": {"$regex": search_query, "$options": "i"}})
+    else:
+
     # Retrieve the user's wardrobe items from the database
-    wardrobe_items = mongo.db.wardrobe.find({'user_id': user_id})
+        wardrobe_items = mongo.db.wardrobe.find({'user_id': user_id})
     return render_template('wardrobe.html', wardrobe_items=wardrobe_items)
 
 @app.route("/wardrobe/edit/<item_id>", methods=['GET', 'POST'])

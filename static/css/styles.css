@@ -46,3 +46,7 @@
     z-index: 1;
     margin-top: 20vh; 
 }
+
+.clear-search-btn {
+    white-space: nowrap;
+}
