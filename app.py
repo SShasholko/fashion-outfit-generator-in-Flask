@@ -101,8 +101,7 @@ def wardrobe():
         # Search for items that match the search query
         wardrobe_items = mongo.db.wardrobe.find({"type": {"$regex": search_query, "$options": "i"}})
     else:
-
-    # Retrieve the user's wardrobe items from the database
+        # Retrieve the user's wardrobe items from the database
         wardrobe_items = mongo.db.wardrobe.find({'user_id': user_id})
     return render_template('wardrobe.html', wardrobe_items=wardrobe_items)
 
