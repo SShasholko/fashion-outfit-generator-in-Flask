@@ -21,9 +21,14 @@
 .button-container {
     gap: 20px;
     margin: 20px 0 20px 0;
+    padding: 15px 0 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background-color: white;
 }
 .first-screen {
-    background-image: url('/static/images/background.webp');
+    background-image: url('/static/images/background.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -33,17 +38,11 @@
     left: 0;
     width: 100%;
     min-height: 100vh;
-    z-index: -1; /* This puts the background behind other content */
+    z-index: -1;
 }
 
 .jumbotron {
     position: relative;
-    z-index: 1; /* This makes sure the content is above the background */
-    /* background-color: rgba(0, 0, 0, 0.5);  */
-    /* padding: 30px;
-    border-radius: 10px; */
-    /* color: #fff; */
-    /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); */
+    z-index: 1;
     margin-top: 20vh; 
 }
-
