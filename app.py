@@ -1,10 +1,10 @@
 import os
-import pymongo
+# import pymongo
 from flask_pymongo import PyMongo
 from flask import Flask, flash, render_template, redirect, request, session, url_for
 from bson.objectid import ObjectId
 from dotenv import load_dotenv
-from flask_bootstrap import Bootstrap
+# from flask_bootstrap import Bootstrap
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
@@ -26,6 +26,7 @@ def index():
 
 @app.route('/about')
 def about():
+    """About page"""
     return render_template('about.html')
 
 
@@ -99,7 +100,7 @@ def wardrobe():
     search_query = request.args.get('search')
     if search_query:
         # Search for items that match the search query
-        wardrobe_items = mongo.db.wardrobe.find({"type": {"$regex": search_query, "$options": "i"}})
+        wardrobe_items = mongo.db.wardrobe.find({'user_id': user_id, "type": {"$regex": search_query, "$options": "i"}})
     else:
         # Retrieve the user's wardrobe items from the database
         wardrobe_items = mongo.db.wardrobe.find({'user_id': user_id})
