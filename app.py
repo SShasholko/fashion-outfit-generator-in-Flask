@@ -83,6 +83,10 @@ def wardrobe():
         seasons = request.form.getlist('seasons')
         image_url = request.form['image_url']
 
+        # Use a default image if no image URL is provided
+        if not image_url:
+            image_url = url_for('static', filename='images/no-image.png')
+
         # Insert the new item into the wardrobe collection
         mongo.db.wardrobe.insert_one({
             'user_id': ObjectId(user_id),
@@ -112,6 +116,12 @@ def edit_item(item_id):
 
     if request.method == 'POST':
         seasons = request.form.getlist('seasons')
+
+        # Check if an image URL was provided, otherwise use a default or existing image
+        image_url = request.form['image_url']
+        if not image_url:
+            image_url = url_for('static', filename='images/no-image.png')
+
         # Update the item in the database
         mongo.db.wardrobe.update_one(
             {'_id': ObjectId(item_id)},
@@ -120,7 +130,7 @@ def edit_item(item_id):
                 'color': request.form['color'],
                 'style': request.form['style'],
                 'seasons': seasons,
-                'image_url': request.form['image_url']
+                'image_url': image_url
             }}
         )
         flash('Item updated successfully!', 'success')
