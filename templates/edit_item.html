@@ -33,10 +33,10 @@
         <div class="form-group">
             <label for="seasons">Suitable Seasons</label>
             <select id="seasons" name="seasons" class="form-control" multiple>
-                <option value="Spring" {% if item.weather == 'Spring' %}selected{% endif %}>Spring</option>
-                <option value="Summer" {% if item.weather == 'Summer' %}selected{% endif %}>Summer</option>
-                <option value="Autumn" {% if item.weather == 'Autumn' %}selected{% endif %}>Autumn</option>
-                <option value="Winter" {% if item.weather == 'Winter' %}selected{% endif %}>Winter</option>
+                <option value="Spring" {% if 'Spring' in item.seasons %}selected{% endif %}>Spring</option>
+                <option value="Summer" {% if 'Summer' in item.seasons %}selected{% endif %}>Summer</option>
+                <option value="Autumn" {% if 'Autumn' in item.seasons %}selected{% endif %}>Autumn</option>
+                <option value="Winter" {% if 'Winter' in item.seasons %}selected{% endif %}>Winter</option>
             </select>
         </div>
         <div class="form-group">

@@ -114,6 +114,11 @@ def wardrobe():
 def edit_item(item_id):
     item = mongo.db.wardrobe.find_one({'_id': ObjectId(item_id)})
 
+    user_id = mongo.db.users.find_one({'username':session.get('user')})['_id']
+    if item['user_id'] != user_id:
+        flash('You are not authorized to edit this item.', 'danger')
+        return redirect(url_for('wardrobe'))
+
     if request.method == 'POST':
         seasons = request.form.getlist('seasons')
 
