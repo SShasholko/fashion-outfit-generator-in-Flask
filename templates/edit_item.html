@@ -6,12 +6,12 @@
         <div class="form-group">
             <label for="type">Type</label>
             <select id="type" name="type" class="form-control">
-                <option value="Outerwear" {% if item.type == 'Outerwear' %}selected{% endif %}>Outerwear</option>
-                <option value="Top" {% if item.type == 'Top' %}selected{% endif %}>Top</option>
-                <option value="Dress" {% if item.type == 'Dress' %}selected{% endif %}>Dress</option>
-                <option value="Bottom" {% if item.type == 'Bottom' %}selected{% endif %}>Bottom</option>
-                <option value="Shoes" {% if item.type == 'Shoes' %}selected{% endif %}>Shoes</option>
-                <option value="Accessory" {% if item.type == 'Accessory' %}selected{% endif %}>Accessory</option>
+                <option value="Outerwear" {% if item.type=='Outerwear' %}selected{% endif %}>Outerwear</option>
+                <option value="Top" {% if item.type=='Top' %}selected{% endif %}>Top</option>
+                <option value="Dress" {% if item.type=='Dress' %}selected{% endif %}>Dress</option>
+                <option value="Bottom" {% if item.type=='Bottom' %}selected{% endif %}>Bottom</option>
+                <option value="Shoes" {% if item.type=='Shoes' %}selected{% endif %}>Shoes</option>
+                <option value="Accessory" {% if item.type=='Accessory' %}selected{% endif %}>Accessory</option>
             </select>
         </div>
         <div class="form-group">
@@ -21,10 +21,10 @@
         <div class="form-group">
             <label for="style">Style</label>
             <select id="style" name="style" class="form-control">
-                <option value="Casual" {% if item.type == 'Casual' %}selected{% endif %}>Casual</option>
-                <option value="Formal" {% if item.type == 'Formal' %}selected{% endif %}>Formal</option>
-                <option value="Semi-Formal" {% if item.type == 'Semi-Formal' %}selected{% endif %}>Semi-Formal</option>
-                <option value="Athletic" {% if item.type == 'Athletic' %}selected{% endif %}>Athletic</option>
+                <option value="Casual" {% if item.type=='Casual' %}selected{% endif %}>Casual</option>
+                <option value="Formal" {% if item.type=='Formal' %}selected{% endif %}>Formal</option>
+                <option value="Semi-Formal" {% if item.type=='Semi-Formal' %}selected{% endif %}>Semi-Formal</option>
+                <option value="Athletic" {% if item.type=='Athletic' %}selected{% endif %}>Athletic</option>
             </select>
         </div>
         <div class="form-group">
@@ -38,7 +38,8 @@
         </div>
         <div class="form-group">
             <label for="image_url">Image URL</label>
-            <input type="text" id="image_url" name="image_url" class="form-control" value="{% if item.image_url != url_for('static', filename='images/no-image.png') %}{{ item.image_url }}{% endif %}">
+            <input type="text" id="image_url" name="image_url" class="form-control"
+                value="{% if item.image_url != url_for('static', filename='images/no-image.png') %}{{ item.image_url }}{% endif %}">
         </div>
         <button type="submit" class="btn btn-primary">Update Item</button>
         <a href="{{ url_for('wardrobe') }}" class="btn btn-secondary">Cancel</a>

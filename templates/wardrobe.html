@@ -8,18 +8,17 @@
             <button class="btn btn-success" data-toggle="modal" data-target="#addItemModal">Add Item</button>
             <a href="{{ url_for('outfit_suggestions') }}" class="btn btn-success">Generate Outfits</a>
         </div>
-
         <form method="GET" action="{{ url_for('wardrobe') }}" class="mb-4 d-flex align-items-center">
             <div class="input-group flex-grow-1">
-                <input type="text" class="form-control" placeholder="Search by type (e.g., dress, top, bottom, outerwear, shoes, or accessory)" name="search" value="{{ request.args.get('search', '') }}">
+                <input type="text" class="form-control"
+                    placeholder="Search by type (e.g., dress, top, bottom, outerwear, shoes, or accessory)"
+                    name="search" value="{{ request.args.get('search', '') }}">
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary " type="submit">Search</button>
                 </div>
             </div>
-
             <a href="{{ url_for('wardrobe') }}" class="btn btn-outline-secondary ml-2 clear-search-btn">Clear Search</a>
         </form>
-        
         <!-- Modal Add Item -->
         <div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" aria-labelledby="addItemModalLabel"
             aria-hidden="true">
@@ -32,7 +31,6 @@
                         </button>
                     </div>
                     <div class="modal-body">
-
                         <form method="POST" action="{{ url_for('wardrobe') }}">
                             <div class="form-group">
                                 <label for="type">Type</label>
@@ -58,7 +56,6 @@
                                     <option value="Athletic">Athletic</option>
                                 </select>
                             </div>
-
                             <div class="form-group">
                                 <label for="seasons">Suitable Seasons</label>
                                 <select id="seasons" name="seasons" class="form-control" multiple>
@@ -67,10 +64,8 @@
                                     <option value="Autumn">Autumn</option>
                                     <option value="Winter">Winter</option>
                                 </select>
-                                <small class="form-text text-muted">Hold down the Ctrl (Windows) or Command (Mac) key to
-                                    select multiple options.</small>
+                                <small class="form-text text-muted">Hold down the Ctrl (Windows) or Command (Mac) key to select multiple options.</small>
                             </div>
-
                             <div class="form-group">
                                 <label for="image_url">Image URL</label>
                                 <input type="text" id="image_url" name="image_url" class="form-control">
@@ -81,7 +76,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Wardrobe Items -->
         <div class="row">
             {% for item in wardrobe_items %}
@@ -96,12 +90,10 @@
                         <p class="card-text">Style: {{ item.style }}</p>
                         <p class="card-text">Suitable for: {{ ', '.join(item.seasons) }}</p>
                         <a href="{{ url_for('edit_item', item_id=item._id) }}" class="btn btn-warning">Edit</a>
-
                         <button type="button" class="btn btn-danger" data-toggle="modal"
                             data-target="#deleteModal{{ item._id }}">
                             Delete
                         </button>
-
                         <!-- Delete Confirmation Modal -->
                         <div class="modal fade" id="deleteModal{{ item._id }}" tabindex="-1" role="dialog"
                             aria-labelledby="deleteModalLabel" aria-hidden="true">
