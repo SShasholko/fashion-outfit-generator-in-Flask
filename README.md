@@ -166,7 +166,7 @@ The Outfit Generation feature intelligently suggests outfits tailored to the cur
 
 
 ### 6. Responsive Design and User-Friendly Interface
-![Responsive Design](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/responsive.gif)
+![Responsive Design](static/images/responsive.gif)
 
 #### Explanation:
 - The Fashion Outfit Generator is built with a responsive design using Bootstrap, ensuring that it looks great on all devices, whether it's a desktop, tablet, or mobile phone.
