@@ -1,7 +1,7 @@
 ![Fashion Outfit Generator](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/mockup.png)
 
 # Fashion Outfit Generator
-## Introduction
+## ✨ Introduction
 Welcome to the Fashion Outfit Generator, your personal stylist right at your fingertips! 
 ### What It Does
 The Fashion Outfit Generator is a web application that acts as your personal stylist. It allows you to digitize your wardrobe by adding items that you already own. Once your wardrobe is set up, the app generates outfit suggestions based on the season and the occasion. Key features include:
@@ -35,7 +35,7 @@ The Home Page welcomes users with a clean and stylish design.
 #### Explanation:
 - **User Registration**: New users can create an account by providing a username, email, and password. The password is securely hashed using generate_password_hash before being stored in the database.
 
-    **Example Code**:
+  **Example Code: User Registration and Account Creation**
 ```bash
   @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -59,7 +59,7 @@ def register():
 
 - **User Login**: Users can log in using their registered credentials. If the username and password match, the user is redirected to their personalized wardrobe page.
 
-    **Example Code**:
+  **Example Code: Handling User Authentication and Login**
 ```bash
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -88,7 +88,7 @@ def login():
 - **Add New Item**: Users can add items to their wardrobe by specifying the type, color, style, and seasons for which the item is suitable. If no image URL is provided, a default image is used.
 ![Add New Item](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/Add+New+Items.png)
 
-    **Example Code**:
+  **Example Code: Setting a Default Image URL if None Provided**
 ```bash
 if not image_url:
     image_url = url_for('static', filename='images/no-image.png')
@@ -97,7 +97,7 @@ if not image_url:
 - **Search Functionality**: Users can search their wardrobe by type, such as "dress" or "shoes." If the search field is empty, all wardrobe items are displayed.
 ![Search](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/search.png)
 
-    **Example Code**:
+  **Example Code: Implementing Search Functionality in the Wardrobe**
 ```bash
     search_query = request.args.get('search')
     if search_query:
@@ -114,7 +114,6 @@ if not image_url:
 |  ![Edit](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/edit.png)| ![Delete Items](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/delete.png)|
 
 ### 4. Outfit Generation Based on Weather and Occasion
-![Generation](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/generation.png)
 ![Suggestions](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/suggestions.png)
 
 The Outfit Generation feature intelligently suggests outfits tailored to the current weather and the occasion you select. 
@@ -122,17 +121,19 @@ The Outfit Generation feature intelligently suggests outfits tailored to the cur
 #### Explanation:
 
 - **User Input**: The user selects the current weather (e.g., Spring, Summer, Autumn, Winter) and the type of occasion (e.g., Casual, Formal, Sporty).
+
+  ![Generation](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/generation.png)
+
 - **Smart Matching**: The app cross-references the user’s wardrobe with the selected weather and occasion. It identifies items that are suitable for the given season and matches them with the occasion type.
 - **Outfit Composition**: The app randomly combines wardrobe items such as tops, bottoms, dresses, outerwear, shoes, and accessories to create complete outfits. It ensures that each suggested outfit is cohesive and appropriate for the context.
 - **Three Suggestions**: Users are presented with three distinct outfit options, providing a variety of choices to suit their style and preferences.
 
-    **Example Code**:
+  **Example Code: Generating Random Outfit Suggestions**
 ```bash
         outfit_suggestions = []
         for _ in range(3):
             outfit = {}
 
-            # Randomly decide to use either a dress or a top + bottom
             if dresses and choice([True, False]):
                 outfit['dress'] = choice(dresses)
                 outfit['top'] = None
@@ -166,7 +167,7 @@ The Outfit Generation feature intelligently suggests outfits tailored to the cur
 
 
 ### 6. Responsive Design and User-Friendly Interface
-![Responsive Design](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/responsive.gif)
+  ![Responsive Design](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/responsive.gif)
 
 #### Explanation:
 - The Fashion Outfit Generator is built with a responsive design using Bootstrap, ensuring that it looks great on all devices, whether it's a desktop, tablet, or mobile phone.
@@ -176,16 +177,30 @@ The Outfit Generation feature intelligently suggests outfits tailored to the cur
 ### 7. Security Features
 **User Authentication and Authorization**:
 The Fashion Outfit Generator ensures that user accounts are secure through robust authentication methods. Users must log in with a username and password, and passwords are hashed using secure hashing algorithms (bcrypt) before being stored in the database. This protects user credentials from being exposed in the event of a data breach.
+  
+  **Example Code: Password Hashing with generate_password_hash**
+  ```bash
+      "password": generate_password_hash(request.form.get("password"))
+  ```
 
-  **Example Code**:
-```bash
-    "password": generate_password_hash(request.form.get("password"))
-```
+**Strong Password Requirements**
+To ensure account security, our app enforces strong password rules:
+- **Minimum Length**: Passwords must be at least 8 characters.
+- **Complexity**: Must include at least one uppercase letter, one lowercase letter, and one number.
+
+**Example Code for Enforcing Strong Password Requirements in HTML Form**
+  ```bash
+      <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password" required minlength="8" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}">
+          <small class="form-text text-muted">Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, and one number.</small>
+      </div>
+  ```
 
 **Authorization Checks for Sensitive Operations**:
 Certain actions, such as editing wardrobe items, require authorization to ensure that only the owner of the items or an authorized user can perform these operations. Each time an item is modified, the app verifies that the requesting user has the right permissions to carry out the action.
 
-  **Example Code**:
+  **Example Code: Authorization Check Before Editing an Item**
 ```bash
     user_id = mongo.db.users.find_one({'username': session.get('user')})['_id']
     if item['user_id'] != user_id:
@@ -193,3 +208,132 @@ Certain actions, such as editing wardrobe items, require authorization to ensure
         return redirect(url_for('wardrobe'))
 ```
 
+## ✨ Manual Testing
+This section outlines the manual testing process carried out to ensure the Fashion Outfit Generator app functions correctly. The testing was performed across multiple browsers and devices to cover a wide range of user scenarios.
+### 1. User Registration and Login
+**Test Scenarios:**
+- **Valid Registration**: Create a new user with a unique username, valid email, and strong password. Ensure the user is redirected to their wardrobe page upon successful registration.
+- **Duplicate Username**: Attempt to register with a username that already exists. Ensure that the app displays an appropriate error message and prevents registration.
+- **Password Requirements**: Test the password input field by entering various combinations of characters that do not meet the required pattern (e.g., too short, missing uppercase letter). Ensure the form does not submit and displays an appropriate error message.
+- **Valid Login**: Log in with a valid username and password. Ensure the user is redirected to their wardrobe page.
+- **Invalid Login**: Attempt to log in with an incorrect password or non-existent username. Ensure the app displays an error message and does not log the user in.
+
+  **Results:**
+
+  ✅ Valid Registration: Passed
+
+  ✅ Duplicate Username: Passed
+
+  ✅ Password Requirements: Passed
+
+  ✅ Valid Login: Passed
+
+  ✅ Invalid Login: Passed
+
+
+### 2. Adding Items to Wardrobe
+**Test Scenarios:**
+- **Valid Item Addition**: Add a new wardrobe item with all required fields filled, including an image URL. Ensure the item is saved and displayed in the user's wardrobe.
+
+- **Empty Image URL**: Add a wardrobe item without an image URL. Ensure the item is saved with the default "no-image.png."
+
+- **Form Validation**: Attempt to submit the form with missing fields (e.g., without selecting seasons or a color). Ensure the app displays validation errors and does not submit the form.
+
+  **Results:**
+
+  ✅ Valid Item Addition: Passed
+
+  ✅ Empty Image URL: Passed
+
+  ✅ Form Validation: Passed
+
+
+### 3. Editing Wardrobe Items
+**Test Scenarios:**
+- **Valid Edit**: Edit an existing wardrobe item and update all fields. Ensure the item is updated correctly in the database and the changes are reflected in the wardrobe.
+- **Unauthorized Edit**: Attempt to edit a wardrobe item belonging to another user by manually changing the item ID in the URL. Ensure the app prevents the edit and displays an appropriate error message.
+- **Empty Image URL Handling**: Edit an item and clear the image URL field. Ensure the app does not revert to the default image unless the field is intentionally left blank.
+
+  **Results:**
+
+  ✅ Valid Edit: Passed
+
+  ✅ Unauthorized Edit: Passed
+
+  ✅ Empty Image URL Handling: Passed
+
+
+### 4. Outfit Generation
+**Test Scenarios:**
+- **Valid Outfit Generation**: Select a season and occasion, then generate outfit suggestions. Ensure the app provides three unique outfit combinations based on the user's wardrobe.
+
+- **Empty Wardrobe**: Attempt to generate outfits with an empty wardrobe. Ensure the app gracefully handles the situation.
+
+- **Item Category Testing**: Test the outfit generator with wardrobes that include only certain types of items (e.g., only tops, no bottoms) to ensure the app handles missing categories appropriately.
+
+  **Results:**
+
+  ✅ Valid Outfit Generation: Passed
+
+  ✅ Empty Wardrobe: Passed
+
+  ✅ Item Category Testing: Passed
+
+
+### 5. Search Functionality
+**Test Scenarios:**
+- **Valid Search**: Search for an item type (e.g., "dress") that exists in the wardrobe. Ensure the app returns the correct results.
+- **Case Insensitivity**: Perform a search using different case variations (e.g., "Dress", "dress", "DRESS") to ensure the search function is case-insensitive.
+- **Empty Search**: Submit an empty search form. Ensure the app displays all wardrobe items.
+
+  **Results:**
+
+  ✅ Valid Search: Passed
+
+  ✅ Case Insensitivity: Passed
+
+  ✅ Empty Search: Passed
+
+
+
+### 6. Responsive Design
+**Test Scenarios:**
+- **Mobile Responsiveness**: Test the app on various screen sizes to ensure the layout adjusts correctly and remains usable on mobile devices.
+- **Desktop Responsiveness**: Resize the browser window on a desktop to test how the layout adjusts. Ensure the content remains accessible and visually appealing.
+
+  **Results:**
+
+  ✅ Mobile Responsiveness: Passed
+
+  ✅ Desktop Responsiveness: Passed
+
+### 7. Accessibility Testing
+**Test Scenarios:**
+- **Keyboard Navigation:** Verify that all interactive elements (e.g., buttons, links, forms) are accessible via keyboard-only navigation.
+- **Color Contrast:** Check the color contrast ratio for text and background elements to ensure readability for users with visual impairments.
+
+  **Results:**
+
+  ✅ Keyboard Navigation: Passed
+
+  ✅ Color Contrast: Passed
+
+### 8. Performance Testing
+**Test Scenario:**
+Measured the time it takes for key pages (e.g., login, wardrobe, outfit generator) to load on various devices and browsers. Used Lighthouse to analyze page performance and user experience.
+ - Home page:
+  ![Home page Performance](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/page-home.png)
+ - Home page:
+  ![Login page Performance](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/page-login.png)
+ - Home page:
+  ![Wardrobe page Performance](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/page-wardrobe.png)
+ - Home page:
+  ![Outfit Generator page Performance](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/page-outfit_suggestions.png)
+
+**Findings:**
+
+ - The app performs well across tested devices and browsers, with acceptable load times for key pages. However, Lighthouse reported the presence of **third-party cookies**, which are connected to images used for wardrobe items.
+
+    - **Details:** Lighthouse detected 17 third-party cookies, most of which are associated with images for wardrobe items. These cookies are generated by third-party image hosts that serve these images. While they currently do not significantly impact performance, Chrome and other browsers are planning to phase out support for third-party cookies as part of ongoing privacy improvements.
+
+    - **Future Impact:** As browsers deprecate support for third-party cookies, this may affect how some images are served or loaded in the app. I will continue to monitor browser updates to ensure that all images for wardrobe items remain accessible and performant, even after third-party cookies are no longer supported.
