@@ -18,6 +18,19 @@ In today's fast-paced world, deciding what to wear can be a time-consuming and o
 ### Who It's For
 The Fashion Outfit Generator is perfect for anyone who wants to streamline their fashion choices. Whether you're a fashion enthusiast looking to experiment with different styles or someone who prefers a more practical approach to getting dressed, this app is designed for you. It’s ideal for busy professionals, students, or anyone who wants to look their best without spending too much time deciding what to wear.
 
+## ✨ Style
+### Color Scheme
+The color scheme for the Fashion Outfit Generator app is designed to be both modern and visually appealing. Here are the primary colors used in the project:
+![Color Palette](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/color-palette.png)
+ - Primary Color: #007bff (Bootstrap Blue)
+ - Secondary Color: #6c757d (Bootstrap Gray)
+ - Success Color: #28a745 (Bootstrap Green)
+ - Danger Color: #dc3545 (Bootstrap Red)
+ - Warning Color: #ffc107 (Bootstrap Yellow)
+
+### Styling Framework
+The project utilizes Bootstrap 4.5.2 for its styling framework. Bootstrap provides a wide range of pre-designed components and utilities, allowing for responsive and attractive design without extensive custom CSS.
+
 ## ✨ Features
 ### 1. Home Page
 ![Home Page](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/Home+Page.png)
