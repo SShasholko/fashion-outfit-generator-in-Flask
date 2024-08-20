@@ -408,3 +408,16 @@ To run the Fashion Outfit Generator app on your local machine, follow these inst
 
 6. Access the App:
   - Open your web browser and navigate to http://127.0.0.1:5500/ to start using the Fashion Outfit Generator on your local machine.
+
+## ✨ Credits
+This project is the result of hard work and support from some amazing individuals. I’d like to extend my heartfelt gratitude to the following people:
+**Special Thanks**
+  - **My Lovely Son:** Your enthusiasm, encouragement, and support have been invaluable throughout this project. Thank you for your constant inspiration and motivation.
+
+  - **My Mentor:** Your guidance, advice, and assistance have been instrumental in the success of this project. Thank you for your invaluable input and support.
+
+**Open Source Contributions**
+This project also leverages several open-source libraries and tools, including:
+   - **Flask:** A lightweight WSGI web application framework in Python, which forms the backbone of this project.
+   - **Bootstrap:** For styling and responsive design, ensuring that the app looks great on all devices.
+  - **MongoDB:** A NoSQL database used for storing users data and wardrobe items efficiently.
