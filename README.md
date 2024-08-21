@@ -1,6 +1,19 @@
 ![Fashion Outfit Generator](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/mockup.png)
 
 
+# Fashion Outfit Generator
+
+The **Fashion Outfit Generator** is a web app that helps you create stylish outfits based on your wardrobe, occasion, and weather conditions. Add items to your virtual wardrobe, generate outfit suggestions, and get inspired for your next look!
+
+
+Try it out here: [Fashion Outfit Generator](https://fashion-outfit-generator-906b3ce57bd3.herokuapp.com/outfit_suggestions)
+
+
+**Test User**:
+**Username**: `sv`
+**Password**: `1111`
+
+
    * [✨ Introduction](#-introduction)
       + [What It Does](#what-it-does)
       + [Why You'll Love It](#why-youll-love-it)
@@ -30,7 +43,6 @@
 
 
 
-# Fashion Outfit Generator
 ## ✨ Introduction
 Welcome to the Fashion Outfit Generator, your personal stylist right at your fingertips! 
 ### What It Does
