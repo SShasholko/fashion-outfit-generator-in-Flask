@@ -1,5 +1,35 @@
 ![Fashion Outfit Generator](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/mockup.png)
 
+
+   * [✨ Introduction](#-introduction)
+      + [What It Does](#what-it-does)
+      + [Why You'll Love It](#why-youll-love-it)
+      + [Who It's For](#who-its-for)
+   * [✨ Style](#-style)
+      + [Color Scheme](#color-scheme)
+      + [Styling Framework](#styling-framework)
+   * [✨ Features](#-features)
+      + [1. Home Page](#1-home-page)
+      + [2. User Registration & Authentication](#2-user-registration-authentication)
+      + [3. Personalized Wardrobe Management](#3-personalized-wardrobe-management)
+      + [4. Outfit Generation Based on Weather and Occasion](#4-outfit-generation-based-on-weather-and-occasion)
+      + [5. Contact Us and About Page](#5-contact-us-and-about-page)
+      + [6. Responsive Design and User-Friendly Interface](#6-responsive-design-and-user-friendly-interface)
+      + [7. Security Features](#7-security-features)
+   * [✨ Manual Testing](#-manual-testing)
+      + [1. User Registration and Login](#1-user-registration-and-login)
+      + [2. Adding Items to Wardrobe](#2-adding-items-to-wardrobe)
+      + [3. Editing Wardrobe Items](#3-editing-wardrobe-items)
+      + [4. Outfit Generation](#4-outfit-generation)
+      + [5. Search Functionality](#5-search-functionality)
+      + [6. Responsive Design](#6-responsive-design)
+      + [7. Accessibility Testing](#7-accessibility-testing)
+      + [8. Performance Testing](#8-performance-testing)
+   * [✨ Deployment](#-deployment)
+   * [✨ Credits](#-credits)
+
+
+
 # Fashion Outfit Generator
 ## ✨ Introduction
 Welcome to the Fashion Outfit Generator, your personal stylist right at your fingertips! 
@@ -424,12 +454,15 @@ To run the Fashion Outfit Generator app on your local machine, follow these inst
 
 ## ✨ Credits
 This project is the result of hard work and support from some amazing individuals. I’d like to extend my heartfelt gratitude to the following people:
+
 **Special Thanks**
+
   - **My Lovely Son:** Your enthusiasm, encouragement, and support have been invaluable throughout this project. Thank you for your constant inspiration and motivation.
 
   - **My Mentor:** Your guidance, advice, and assistance have been instrumental in the success of this project. Thank you for your invaluable input and support.
 
 **Open Source Contributions**
+
 This project also leverages several open-source libraries and tools, including:
    - **Flask:** A lightweight WSGI web application framework in Python, which forms the backbone of this project.
    - **Bootstrap:** For styling and responsive design, ensuring that the app looks great on all devices.
