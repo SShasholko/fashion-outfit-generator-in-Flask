@@ -32,7 +32,8 @@ Try it out here: [Fashion Outfit Generator](https://fashion-outfit-generator-906
       + [5. Search Functionality](#5-search-functionality)
       + [6. Responsive Design](#6-responsive-design)
       + [7. Accessibility Testing](#7-accessibility-testing)
-      + [8. Performance Testing](#8-performance-testing)
+      + [8. Code Validation](#8-code-validation)
+      + [9. Performance Testing](#9-performance-testing)
    * [✨ Deployment](#-deployment)
    * [✨ Credits](#-credits)
 
@@ -394,17 +395,18 @@ This section outlines the manual testing process carried out to ensure the Fashi
 ### 9. Performance Testing
 **Test Scenario:**
 Measured the time it takes for key pages (e.g., login, wardrobe, outfit generator) to load on various devices and browsers. Used Lighthouse to analyze page performance and user experience.
+
  - Home page:
-  ![Home page Performance](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/page-home.png)
+    ![Home page Performance](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/page_home.png)
 
  - Login page:
-  ![Login page Performance](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/page-login.png)
+  ![Login page Performance](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/page_login.png)
 
  - Wardrobe page:
-  ![Wardrobe page Performance](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/page-wardrobe.png)
+  ![Wardrobe page Performance](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/page_wardrobe.png)
 
  - Outfit Generator page:
-  ![Outfit Generator page Performance](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/page-outfit_suggestions.png)
+  ![Outfit Generator page Performance](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/page_outfit_suggestions.png)
 
 **Findings:**
 
