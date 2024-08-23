@@ -9,11 +9,6 @@ The **Fashion Outfit Generator** is a web app that helps you create stylish outf
 Try it out here: [Fashion Outfit Generator](https://fashion-outfit-generator-906b3ce57bd3.herokuapp.com/outfit_suggestions)
 
 
-**Test User**:
-**Username**: `sv`
-**Password**: `1111`
-
-
    * [✨ Introduction](#-introduction)
       + [What It Does](#what-it-does)
       + [Why You'll Love It](#why-youll-love-it)
@@ -373,16 +368,42 @@ This section outlines the manual testing process carried out to ensure the Fashi
 
   ✅ Color Contrast: Passed
 
-### 8. Performance Testing
+
+### 8. Code Validation
+**Test Scenario:**
+
+**Python Code Validation**
+- **Tool Used**: https://pep8ci.herokuapp.com/#.
+- **Results**: The Python code was successfully validated, with no critical issues reported. Any warnings or suggestions for improvements were addressed.
+![Python Code Validation](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/python.png)
+
+
+**HTML Validation**
+- **Tool Used**: [W3C Markup Validation Service](https://validator.w3.org/)
+- **Results**: The HTML code was validated, and any errors identified were corrected to ensure compliance with HTML5 standards.
+![HTML Code Validation](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/html.png)
+
+
+**CSS Validation**
+- **Tool Used**: [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+- **Results**: The CSS code was successfully validated with no major issues.
+![CSS Code Validation](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/css.png)
+
+
+
+### 9. Performance Testing
 **Test Scenario:**
 Measured the time it takes for key pages (e.g., login, wardrobe, outfit generator) to load on various devices and browsers. Used Lighthouse to analyze page performance and user experience.
  - Home page:
   ![Home page Performance](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/page-home.png)
- - Home page:
+
+ - Login page:
   ![Login page Performance](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/page-login.png)
- - Home page:
+
+ - Wardrobe page:
   ![Wardrobe page Performance](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/page-wardrobe.png)
- - Home page:
+
+ - Outfit Generator page:
   ![Outfit Generator page Performance](https://fashion-outfit-generator.s3.eu-north-1.amazonaws.com/page-outfit_suggestions.png)
 
 **Findings:**
